@@ -1,0 +1,19 @@
+// Write your overrides
+.v-card-item {
+  padding-block: 10px;
+  padding-block-end: 10px;
+  padding-inline: 15px;
+  padding-inline-start: 15px;
+}
+
+.v-col-12, .v-col-sm-12, .v-col-8, .v-col-md-8 {
+  padding:10px;
+}
+
+.v-row{
+  margin:-10px;
+}
+
+.red{
+  color:red;
+}

@@ -1,0 +1,18 @@
+build
+node_modules
+*.log
+package-lock.json
+
+node_modules
+build
+*.log
+.DS_Store
+dist
+
+.env
+docker/.env
+
+.pnpm-store/
+
+# NX Build System
+.nx/cache

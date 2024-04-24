@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "strictNullChecks": false,
+        "declaration": true,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "lib": ["ES2015", "DOM"],
+        "target": "ES5",
+        "typeRoots": ["./node_modules/@types"],
+        "moduleResolution": "Node",
+        "strictPropertyInitialization": false,
+        "resolveJsonModule": true,
+        "declarationMap": true,
+        "skipLibCheck": true
+    }
+}
