@@ -7,7 +7,7 @@
         "options": {
           "cacheableOperations": ["build", "test", "lint", "package", "prepare"],
           "canTrackAnalytics": false,
-          "accessToken": ""
+          "accessToken": "Y2E4OTk2ZDEtMjVmMy00MGI0LTgwYTUtMjhjOWYyNzI2NWIyfHJlYWQtd3JpdGU="
         }
       }
     },
