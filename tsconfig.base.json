@@ -13,7 +13,7 @@
         "lib": ["ES2015", "DOM"],
         "target": "ES5",
         "typeRoots": ["./node_modules/@types"],
-        "moduleResolution": "Node",
+        "moduleResolution": "Node10",
         "strictPropertyInitialization": false,
         "resolveJsonModule": true,
         "declarationMap": true,

@@ -1,7 +1,7 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "moduleResolution": "Node",
+        "moduleResolution": "Node10",
         "baseUrl": ".",
         "paths": {},
         "ignoreDeprecations": "5.0"
@@ -12,6 +12,7 @@
         "chai",
         "sinon",
         "cypress",
-        "jest"
+        "jest",
+        "module"
     ]
 }
