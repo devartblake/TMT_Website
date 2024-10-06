@@ -1,13 +1,7 @@
 {
-  "name": "root",
+  "name": "theoryminds",
   "private": true,
   "packageManager": "pnpm@9.0.6",
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "providers/*"
-    ]
-  },
   "scripts": {
     "bootstrap": "npm run setup:dev",
     "start": "npm run gazoo",
@@ -19,7 +13,21 @@
     "nx": "nx",
     "lint": "nx run-many --target=lint --all",
     "lint-staged": "lint-staged",
-    "gazoo": "node scripts/gazoo.js"
+    "docker:build": "pnpm -r --if-present --parallel docker:build",
+    "build": "nx run-many --target=build --all",
+    "prebuild": "nx run-many --target=build --all",
+    "build:api": "nx build @tmt/api",
+    "gazoo": "node scripts/gazoo.js",
+    "generate:provider": "npx hygen provider new --version 0.0.1",
+    "test": "cross-env CI=true lerna run test:watch --parallel",
+    "start:dev": "cross-env TZ=EST lerna run start:dev --stream --parallel --concurrency=20 --scope=@theory/{api,admin,worker,web, widget,ws}",
+    "start:web": "cross-env nx run @theory/web:start",
+    "start:ws": "cross-env nx run @theory/ws:start",
+    "start:api": "cross-env nx run @theory/api:start",
+    "start:api:dev": "cross-env nx run @theory/api:start:dev",
+    "start:admin": "cross-env nx run @theory/admin:start",
+    "start:admin:dev": "cross-env nx run @theory/admin:start:dev",
+    "dev-environment-setup": "sh ./scripts/dev-environment-setup.sh"
   },
   "author": "",
   "license": "ISC",
@@ -45,6 +53,7 @@
     "auto": "^11.1.6",
     "chalk": "^5.3.0",
     "chalk-animation": "^2.0.3",
+    "cross-env": "^7.0.3",
     "cspell": "^8.7.0",
     "detect-port": "^1.5.1",
     "eslint": "^8.57.0",
@@ -81,10 +90,51 @@
     "typescript": "^5.4.5",
     "wait-port": "^1.1.0"
   },
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "libs/*",
+      "packages/*",
+      "providers/*"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "nx": "^16.10.0",
+    "tslib": "^2.4.0"
+  },
+  "lint-staged": {
+    "apps/**/*.{ts,tsx,json}": [
+      "prettier --ignore-path ./.prettierignore --write",
+      "eslint",
+      "stop-only --file"
+    ],
+    "packages/**/*.{ts,tsx,json}": [
+      "prettier --ignore-path ./.prettierignore --write",
+      "eslint",
+      "stop-only --file"
+    ],
+    "providers/**/*.{ts,json}": [
+      "prettier --ignore-path ./.prettierignore --write",
+      "eslint",
+      "stop-only --file"
+    ],
+    "libs/**/*.{ts,js,json}": [
+      "prettier --ignore-path ./.prettierignore --write",
+      "eslint",
+      "stop-only --file"
+    ]
+  },
   "resolutions": {
     "stylelint-order": "6.0.3"
   },
-  "overrides": {
-    "minimist": "1.2.6"
+  "pnpm": {
+    "overrides": {
+      "minimist": "1.2.6"
+    }
   }
 }

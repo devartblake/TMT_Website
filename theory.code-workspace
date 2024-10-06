@@ -1,0 +1,61 @@
+{
+    "folders": [
+      {
+        "name": "✨ theory root",
+        "path": "."
+      },
+      {
+        "name": "🚀 @theory/api",
+        "path": "apps/api"
+      },
+      {
+        "name": "🚀 @theory/admin",
+        "path": "apps/admin"
+      },
+      {
+        "name": "🚀 @theory/worker",
+        "path": "apps/worker"
+      },
+      {
+        "name": "🚀 @theory/web",
+        "path": "apps/web"
+      },
+      {
+        "name": "🚀 @theory/ws",
+        "path": "apps/ws"
+      },
+      {
+        "name": "🚀 @theory/webhook",
+        "path": "apps/webhook"
+      },
+      {
+        "name": "🚀 @theory/widget",
+        "path": "apps/widget"
+      },
+      {
+        "name": "📦 @theory/design-system",
+        "path": "libs/design-system"
+      },      
+    ],
+    "settings": {
+      "typescript.tsdk": "node_modules/typescript/lib",
+      "typescript.enablePromptUseWorkspaceTsdk": true,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.formatOnPaste": true,
+      "cSpell.words": [
+        "Chainable",
+        "usecases"
+      ],
+      "vsicons.presets.nestjs": true
+    },
+    "extensions": {
+      "recommendations": [
+        "folke.vscode-monorepo-workspace",
+        "seatonjiang.gitmoji-vscode",
+        "jondot.vscode-hygen",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }

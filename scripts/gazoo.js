@@ -34,7 +34,7 @@ const API_E2E_TESTS = 'API E2E tests';
 const API_INTEGRATION_TESTS = 'API integration tests';
 const DEV_ENVIRONMENT_SETUP = 'Development environment setup';
 const WEB_PROJECT_AND_WIDGET = 'Web project and Widget app';
-const WEB_PROJECT = 'Web project (Web, API, Worker, WS)';
+const WEB_PROJECT = 'Web project (Web, API, Admin, Worker, WS)';
 const WEB_TESTS = 'WEB tests';
 
 const RUN_CYPRESS_UI = 'Open Cypress UI';
@@ -99,21 +99,30 @@ async function setupRunner() {
       shell.exec('nx run-many --target=build --projects=@tmt/api,@tmt/worker');
       shell.exec('npm run start:dev', { async: true });
 
+      /* API */
       await waitPort({
         host: 'localhost',
         port: 3000,
       });
+      /* Worker */
       await waitPort({
         host: 'localhost',
         port: 3004,
       });
+      /* Widget */
       await waitPort({
         host: 'localhost',
         port: 4500,
       });
+      /* Web */
       await waitPort({
         host: 'localhost',
         port: 4200,
+      });
+      /* Admin */
+      await waitPort({
+        host: 'localhost',
+        port: 4600,
       });
 
       // eslint-disable-next-line no-console
@@ -122,6 +131,7 @@ async function setupRunner() {
 
         Web: http://127.0.0.1:4200
         Widget: http://127.0.0.1:4500
+        Admin: http://127.0.0.1:4600
         API: http://127.0.0.1:3000
         Worker: http://127.0.0.1:3004
       `);
@@ -133,14 +143,17 @@ async function setupRunner() {
         shell.exec('npm run start:ws', { async: true });
         shell.exec('npm run start:worker', { async: true });
 
+        /* API */
         await waitPort({
           host: 'localhost',
           port: 3000,
         });
+        /* WS */
         await waitPort({
           host: 'localhost',
           port: 3002,
         });
+        /* Worker */
         await waitPort({
           host: 'localhost',
           port: 3004,
@@ -154,6 +167,7 @@ async function setupRunner() {
           Everything is running 🎊
         
           Web: http://127.0.0.1:4200
+          Admin: http://127.0.0.1:4600
           API: http://127.0.0.1:3000
           WS: http://127.0.0.1:3002
           Worker: http://127.0.0.1:3004
@@ -166,10 +180,12 @@ async function setupRunner() {
       shell.exec('npm run start:api', { async: true });
       shell.exec('npm run start:worker', { async: true });
 
+      /* API */
       await waitPort({
         host: 'localhost',
         port: 3000,
       });
+      /* Worker */
       await waitPort({
         host: 'localhost',
         port: 3004,
